@@ -7,6 +7,7 @@ import com.ticxo.modelengine.api.entity.Dummy
 import com.ticxo.modelengine.api.model.ActiveModel
 import com.ticxo.modelengine.api.model.ModeledEntity
 import com.ticxo.modelengine.api.model.bone.BoneBehaviorTypes
+import com.typewritermc.engine.paper.entry.entity.EntityIdentity
 import com.typewritermc.engine.paper.entry.entity.EntityState
 import com.typewritermc.engine.paper.entry.entity.FakeEntity
 import com.typewritermc.engine.paper.entry.entity.PositionProperty
@@ -59,8 +60,8 @@ class ModelEngineEntity(
         pendingModelTasks.add(block)
     }
 
-    override val entityId: Int
-        get() = entity.entityId
+    override val identity: EntityIdentity
+        get() = EntityIdentity(entity.entityId, entity.uuid)
 
     override val state: EntityState
         get() = EntityState(height(), speed())
